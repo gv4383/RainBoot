@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 class WeatherManager {
     func getCurrentWeather(cityId: Int) async throws -> WeatherFull {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherManager {
+final class WeatherManager {
     func getCurrentWeather(cityId: Int) async throws -> WeatherFull {
         let weatherURL = "https://api.openweathermap.org/data/2.5/weather?id=\(cityId)&appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
         

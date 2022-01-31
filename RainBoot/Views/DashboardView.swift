@@ -15,13 +15,13 @@ struct DashboardView: View {
             Text("Dashboard View")
                 .padding()
         }
-        .task {
-            do {
-                try await weatherManager.getCurrentWeather(cityId: 4671654)
-            } catch {
-                print("Error getting weather: \(error)")
-            }
-        }
+//        .task {
+//            do {
+//                try await weatherManager.getCurrentWeather(cityId: 4671654)
+//            } catch {
+//                print("Error getting weather: \(error)")
+//            }
+//        }
     }
 }
 

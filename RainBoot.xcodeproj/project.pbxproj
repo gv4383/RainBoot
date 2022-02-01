@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B937204A27A821E50007B093 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204927A821E50007B093 /* LocationManager.swift */; };
+		B937204C27A8E1660007B093 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204B27A8E1660007B093 /* LoadingView.swift */; };
+		B937204F27A8E5C90007B093 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204E27A8E5C90007B093 /* Color-Theme.swift */; };
+		B937205127A8E6B70007B093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937205027A8E6B70007B093 /* ContentView.swift */; };
 		B9A4811627A3A4D60067CA0A /* RainBootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811527A3A4D60067CA0A /* RainBootApp.swift */; };
 		B9A4811827A3A4D60067CA0A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811727A3A4D60067CA0A /* DashboardView.swift */; };
 		B9A4811A27A3A4D80067CA0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4811927A3A4D80067CA0A /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		B937204927A821E50007B093 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B937204B27A8E1660007B093 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B937204E27A8E5C90007B093 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		B937205027A8E6B70007B093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B9A4811227A3A4D60067CA0A /* RainBoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainBoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4811527A3A4D60067CA0A /* RainBootApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainBootApp.swift; sourceTree = "<group>"; };
 		B9A4811727A3A4D60067CA0A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -39,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B937204D27A8E5A90007B093 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B937204E27A8E5C90007B093 /* Color-Theme.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B9A4810927A3A4D60067CA0A = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +76,7 @@
 				B9A4812427A3B36C0067CA0A /* Managers */,
 				B9AC494327A3C00100D0C42D /* Models */,
 				B9A4812327A3AF350067CA0A /* Views */,
+				B937204D27A8E5A90007B093 /* Utils */,
 				B9A4811527A3A4D60067CA0A /* RainBootApp.swift */,
 				B9A4811927A3A4D80067CA0A /* Assets.xcassets */,
 				B9A4811B27A3A4D80067CA0A /* Preview Content */,
@@ -80,7 +95,9 @@
 		B9A4812327A3AF350067CA0A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B937205027A8E6B70007B093 /* ContentView.swift */,
 				B9A4811727A3A4D60067CA0A /* DashboardView.swift */,
+				B937204B27A8E1660007B093 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,9 +191,12 @@
 			files = (
 				B9AC494527A3C06400D0C42D /* WeatherFull.swift in Sources */,
 				B9A4812627A3B3840067CA0A /* WeatherManager.swift in Sources */,
+				B937205127A8E6B70007B093 /* ContentView.swift in Sources */,
+				B937204F27A8E5C90007B093 /* Color-Theme.swift in Sources */,
 				B937204A27A821E50007B093 /* LocationManager.swift in Sources */,
 				B9A4811827A3A4D60067CA0A /* DashboardView.swift in Sources */,
 				B9A4811627A3A4D60067CA0A /* RainBootApp.swift in Sources */,
+				B937204C27A8E1660007B093 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

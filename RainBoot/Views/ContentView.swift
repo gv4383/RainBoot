@@ -9,7 +9,10 @@ import SwiftUI
 import CoreLocationUI
 
 struct ContentView: View {
-    @StateObject var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()
+    @ObservedObject private var viewModel = ContentViewModel()
+    
+    let weatherManager = WeatherManager()
     
     var body: some View {
         ZStack {
@@ -22,8 +25,22 @@ struct ContentView: View {
             
             VStack {
                 if locationManager.location != nil {
-                    DashboardView()
-                        .environmentObject(locationManager)
+                    if viewModel.weather != nil {
+                        DashboardView()
+                            .environmentObject(locationManager)
+                    } else {
+                        LoadingView()
+                            .task {
+                                do {
+                                    viewModel.weather = try await weatherManager.getCurrentWeather(
+                                        latitude: locationManager.location!.latitude,
+                                        longitude: locationManager.location!.longitude
+                                    )
+                                } catch {
+                                    print("Error getting weather:", error)
+                                }
+                            }
+                    }
                 } else {
                     if locationManager.isLoading {
                         LoadingView()

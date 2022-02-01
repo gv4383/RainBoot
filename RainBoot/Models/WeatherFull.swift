@@ -39,6 +39,11 @@ struct WeatherFull: Codable {
     struct Wind: Codable {
         let speed: Double
         let deg: Double
-        let gust: Double
     }
+}
+
+extension WeatherFull.Main {
+    var feelsLike: Double { return feels_like }
+    var tempMin: Double { return temp_min }
+    var tempMax: Double { return temp_max }
 }

@@ -6,22 +6,26 @@
 //
 
 import SwiftUI
+import CoreLocationUI
 
 struct DashboardView: View {
+    @StateObject var locationManager = LocationManager()
+    
     var weatherManager = WeatherManager()
     
     var body: some View {
         VStack {
-            Text("Dashboard View")
-                .padding()
+            if let location = locationManager.location {
+                Text("Coordinates: \(location.latitude), \(location.longitude)")
+            } else {
+                LocationButton(.shareCurrentLocation) {
+                    locationManager.requestLocation()
+                }
+                .cornerRadius(30)
+                .symbolVariant(.fill)
+                .foregroundColor(.white)
+            }
         }
-//        .task {
-//            do {
-//                try await weatherManager.getCurrentWeather(cityId: 4671654)
-//            } catch {
-//                print("Error getting weather: \(error)")
-//            }
-//        }
     }
 }
 

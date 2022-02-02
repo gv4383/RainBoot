@@ -26,7 +26,7 @@ struct ContentView: View {
             VStack {
                 if locationManager.location != nil {
                     if viewModel.weather != nil {
-                        DashboardView()
+                        DashboardView(weather: viewModel.weather!)
                             .environmentObject(locationManager)
                     } else {
                         LoadingView()

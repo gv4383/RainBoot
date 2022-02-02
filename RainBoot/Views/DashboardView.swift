@@ -15,7 +15,7 @@ struct DashboardView: View {
     
     // TODO: Move this to view model
     var currentDate: String {
-        Date().formatted(.dateTime.month().day().hour().minute())
+        Date().formatted(.dateTime.weekday().month().day())
     }
     
     var body: some View {

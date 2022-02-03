@@ -18,6 +18,14 @@ struct DashboardView: View {
         Date().formatted(.dateTime.weekday().month().day())
     }
     
+    // TODO: Move this to view model
+    var temperature: Int {
+        let tempInKelvin = weather.main.temp
+        let convertedTemp = ((tempInKelvin - 273.15) * 9 / 5) + 32
+        
+        return Int(convertedTemp.rounded())
+    }
+    
     var body: some View {
         VStack() {
             HStack {
@@ -29,6 +37,24 @@ struct DashboardView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Spacer()
+            
+            VStack(spacing: 5) {
+                Text("Today")
+                    .font(.title)
+                
+                HStack(spacing: 10) {
+                    Image(systemName: "sun.max")
+                        .font(.system(size: 48))
+                    
+                    Text("\(temperature)°")
+                        .bold().font(.largeTitle)
+                }
+                
+                Text(weather.weather.first?.main ?? "N/A")
+                    .font(.title3)
+            }
             
             Spacer()
         }

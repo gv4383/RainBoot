@@ -27,7 +27,6 @@ struct ContentView: View {
                 if locationManager.location != nil {
                     if viewModel.weather != nil {
                         DashboardView(weather: viewModel.weather!)
-                            .environmentObject(locationManager)
                     } else {
                         LoadingView()
                             .task {
@@ -45,12 +44,8 @@ struct ContentView: View {
                     if locationManager.isLoading {
                         LoadingView()
                     } else {
-                        LocationButton(.shareCurrentLocation) {
-                            locationManager.requestLocation()
-                        }
-                        .cornerRadius(30)
-                        .symbolVariant(.fill)
-                        .foregroundColor(.white)
+                        WelcomeView()
+                            .environmentObject(locationManager)
                     }
                 }
             }

@@ -8,16 +8,80 @@
 import Foundation
 
 struct WeatherFull: Codable {
-    let id: Int
-    let coord: Coord
-    let weather: [Weather]
-    let main: Main
-    let wind: Wind
-    let name: String
+    let lon: Double
+    let lat: Double
+    let timezone: String
+    let timezone_offset: Double
+    let current: Current
+    let hourly: [Hourly]
+    let daily: [Daily]
     
-    struct Coord: Codable {
-        let lon: Double
-        let lat: Double
+    struct Current: Codable {
+        let dt: Double
+        let sunrise: Double
+        let sunset: Double
+        let temp: Double
+        let feels_like: Double
+        let pressure: Double
+        let humidity: Double
+        let dew_point: Double
+        let uvi: Double
+        let clouds: Double
+        let visibility: Double
+        let wind_speed: Double
+        let wind_deg: Double
+        let weather: [Weather]
+    }
+    
+    struct Hourly: Codable {
+        let dt: Double
+        let temp: Double
+        let feels_like: Double
+        let pressure: Double
+        let humidity: Double
+        let dew_point: Double
+        let uvi: Double
+        let clouds: Double
+        let visibility: Double
+        let wind_speed: Double
+        let wind_deg: Double
+        let weather: [Weather]
+    }
+    
+    struct Daily: Codable {
+        let dt: Double
+        let sunrise: Double
+        let sunset: Double
+        let moonrise: Double
+        let moonset: Double
+        let moon_phase: Double
+        let temp: Temp
+        let feels_like: FeelsLike
+        let pressure: Double
+        let humidity: Double
+        let dew_point: Double
+        let wind_speed: Double
+        let wind_deg: Double
+        let weather: [Weather]
+        let clouds: Double
+        let pop: Double
+        let uvi: Double
+    }
+    
+    struct Temp: Codable {
+        let day: Double
+        let min: Double
+        let max: Double
+        let night: Double
+        let eve: Double
+        let morn: Double
+    }
+    
+    struct FeelsLike: Codable {
+        let day: Double
+        let night: Double
+        let eve: Double
+        let morn: Double
     }
     
     struct Weather: Codable {
@@ -26,24 +90,25 @@ struct WeatherFull: Codable {
         let description: String
         let icon: String
     }
-    
-    struct Main: Codable {
-        let temp: Double
-        let feels_like: Double
-        let temp_min: Double
-        let temp_max: Double
-        let pressure: Double
-        let humidity: Double
-    }
-    
-    struct Wind: Codable {
-        let speed: Double
-        let deg: Double
-    }
 }
 
-extension WeatherFull.Main {
+extension WeatherFull.Current {
     var feelsLike: Double { return feels_like }
-    var tempMin: Double { return temp_min }
-    var tempMax: Double { return temp_max }
+    var dewPoint: Double { return dew_point }
+    var windSpeed: Double { return wind_speed }
+    var windDeg: Double { return wind_deg }
+}
+
+extension WeatherFull.Hourly {
+    var feelsLike: Double { return feels_like }
+    var dewPoint: Double { return dew_point }
+    var windSpeed: Double { return wind_speed }
+    var windDeg: Double { return wind_deg }
+}
+
+extension WeatherFull.Daily {
+    var moonPhase: Double { return moon_phase }
+    var dewPoint: Double { return dew_point }
+    var windSpeed: Double { return wind_speed }
+    var windDeg: Double { return wind_deg }
 }

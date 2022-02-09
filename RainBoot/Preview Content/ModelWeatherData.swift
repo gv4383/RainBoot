@@ -7,6 +7,7 @@
 
 import Foundation
 
+let previewGeocode: Geocode = Bundle.main.decode("geocodeData.json")
 let previewWeather: WeatherFull = Bundle.main.decode("weatherData.json")
 
 extension Bundle {

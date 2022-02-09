@@ -9,24 +9,25 @@ import SwiftUI
 import CoreLocation
 
 struct DashboardView: View {
+    let geocode: Geocode
     let weather: WeatherFull
     
     @ObservedObject private var viewModel = DashboardViewModel()
     
     var body: some View {
         VStack() {
-            CityAndDateView(city: weather.name, currentDate: viewModel.currentDate)
+            CityAndDateView(city: geocode.name, currentDate: viewModel.currentDate)
             
             Spacer()
             
             WeatherDisplayView(
                 symbol: viewModel.getWeatherSymbol(
                     weatherCondition: DashboardViewModel.WeatherCondition(
-                        rawValue: weather.weather.first!.main
+                        rawValue: weather.current.weather.first!.main
                     )!
                 ),
-                temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.main.temp),
-                description: weather.weather.first!.main
+                temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.current.temp),
+                description: weather.current.weather.first!.main
             )
             
             Spacer()
@@ -37,7 +38,7 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView(weather: previewWeather)
+        DashboardView(geocode: previewGeocode, weather: previewWeather)
             .preferredColorScheme(.dark)
     }
 }

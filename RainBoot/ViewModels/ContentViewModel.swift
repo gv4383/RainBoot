@@ -8,5 +8,6 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject {
+    @Published var geocode: Geocode?
     @Published var weather: WeatherFull?
 }

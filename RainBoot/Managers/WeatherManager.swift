@@ -9,12 +9,33 @@ import Foundation
 import CoreLocation
 
 final class WeatherManager {
+    let baseWeatherURL = "https://api.openweathermap.org/data/2.5/onecall?appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
+    let baseGeocodeURL = "https://api.openweathermap.org/geo/1.0/reverse?appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
+    
     // TODO: Add loading state
     // TODO: Abstract URL logic to be able to use lat/long OR city
-    func getCurrentWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> WeatherFull {
-        let weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
+    func getWeather(
+        latitude: CLLocationDegrees,
+        longitude: CLLocationDegrees
+    ) async throws -> WeatherFull {
+        let urlString = "\(baseWeatherURL)&lat=\(latitude)&lon=\(longitude)&exclude=minutely,alerts"
+        let weather: WeatherFull = try await performRequest(with: urlString)
         
-        guard let url = URL(string: weatherURL) else {
+        return weather
+    }
+    
+    func getGeocode(
+        latitude: CLLocationDegrees,
+        longitude: CLLocationDegrees
+    ) async throws -> Geocode {
+        let urlString = "\(baseGeocodeURL)&lat=\(latitude)&lon=\(longitude)&limit=1"
+        let geocodes: [Geocode] = try await performRequest(with: urlString)
+
+        return geocodes.first!
+    }
+    
+    func performRequest<T: Codable>(with urlString: String) async throws -> T {
+        guard let url = URL(string: urlString) else {
             fatalError("Missing URL")
         }
         
@@ -23,10 +44,10 @@ final class WeatherManager {
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            fatalError("Error fetching weather data")
+            fatalError("Error fetching data")
         }
         
-        let decodedData = try JSONDecoder().decode(WeatherFull.self, from: data)
+        let decodedData = try JSONDecoder().decode(T.self, from: data)
         
         return decodedData
     }

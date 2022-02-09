@@ -25,18 +25,27 @@ struct ContentView: View {
             
             VStack {
                 if locationManager.location != nil {
-                    if viewModel.weather != nil {
-                        DashboardView(weather: viewModel.weather!)
+                    if viewModel.geocode != nil && viewModel.weather != nil {
+                        DashboardView(geocode: viewModel.geocode!, weather: viewModel.weather!)
                     } else {
                         LoadingView()
                             .task {
                                 do {
-                                    viewModel.weather = try await weatherManager.getCurrentWeather(
+                                    viewModel.weather = try await weatherManager.getWeather(
                                         latitude: locationManager.location!.latitude,
                                         longitude: locationManager.location!.longitude
                                     )
                                 } catch {
                                     print("Error getting weather:", error)
+                                }
+                                
+                                do {
+                                    viewModel.geocode = try await weatherManager.getGeocode(
+                                        latitude: locationManager.location!.latitude,
+                                        longitude: locationManager.location!.longitude
+                                    )
+                                } catch {
+                                    print("Error getting geocode:", error)
                                 }
                             }
                     }

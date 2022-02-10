@@ -24,7 +24,10 @@ struct DashboardView: View {
                 symbol: viewModel.getWeatherSymbol(
                     weatherCondition: DashboardViewModel.WeatherCondition(
                         rawValue: weather.current.weather.first!.main
-                    )!
+                    )!,
+                    sunriseTime: weather.current.sunrise,
+                    sunsetTime: weather.current.sunset,
+                    currentTime: weather.current.dt
                 ),
                 temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.current.temp),
                 description: weather.current.weather.first!.main

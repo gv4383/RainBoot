@@ -28,7 +28,16 @@ final class DashboardViewModel: ObservableObject {
         return Int(convertedTemp.rounded())
     }
     
-    func getWeatherSymbol(weatherCondition: WeatherCondition) -> String {
+    func getWeatherSymbol(
+        weatherCondition: WeatherCondition,
+        sunriseTime: Double,
+        sunsetTime: Double,
+        currentTime: Double
+    ) -> String {
+        let clearSymbol = currentTime >= sunriseTime && currentTime < sunsetTime
+            ? "sun.max.fill"
+            : "moon.fill"
+        
         switch weatherCondition {
         case .thunderstorm:
             return "cloud.bolt.rain.fill"
@@ -41,7 +50,7 @@ final class DashboardViewModel: ObservableObject {
         case .atmosphere:
             return "cloud.fog.fill"
         case .clear:
-            return "sun.max.fill"
+            return clearSymbol
         case .clouds:
             return "cloud.fill"
         }

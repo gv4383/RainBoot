@@ -15,27 +15,33 @@ struct DashboardView: View {
     @ObservedObject private var viewModel = DashboardViewModel()
     
     var body: some View {
-        VStack() {
-            CityAndDateView(city: geocode.name, currentDate: viewModel.currentDate)
+        VStack {
+            VStack {
+                CityAndDateView(city: geocode.name, currentDate: viewModel.currentDate)
+                
+                Spacer()
+                
+                WeatherDisplayView(
+                    symbol: viewModel.getWeatherSymbol(
+                        weatherCondition: DashboardViewModel.WeatherCondition(
+                            rawValue: weather.current.weather.first!.main
+                        )!,
+                        sunriseTime: weather.current.sunrise,
+                        sunsetTime: weather.current.sunset,
+                        currentTime: weather.current.dt
+                    ),
+                    temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.current.temp),
+                    description: weather.current.weather.first!.main
+                )
+                
+                Spacer()
+            }
+            .padding()
             
-            Spacer()
-            
-            WeatherDisplayView(
-                symbol: viewModel.getWeatherSymbol(
-                    weatherCondition: DashboardViewModel.WeatherCondition(
-                        rawValue: weather.current.weather.first!.main
-                    )!,
-                    sunriseTime: weather.current.sunrise,
-                    sunsetTime: weather.current.sunset,
-                    currentTime: weather.current.dt
-                ),
-                temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.current.temp),
-                description: weather.current.weather.first!.main
-            )
+            HourlyWeatherSliderView()
             
             Spacer()
         }
-        .padding()
     }
 }
 

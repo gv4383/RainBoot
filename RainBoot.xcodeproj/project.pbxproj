@@ -13,6 +13,7 @@
 		B900011727B2DC2A0042A904 /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900011627B2DC2A0042A904 /* Geocode.swift */; };
 		B900011B27B2DFCC0042A904 /* geocodeData.json in Resources */ = {isa = PBXBuildFile; fileRef = B900011A27B2DFCC0042A904 /* geocodeData.json */; };
 		B900011D27B556810042A904 /* WeatherCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900011C27B556810042A904 /* WeatherCapsuleView.swift */; };
+		B900012027B61DAA0042A904 /* HourlyWeatherSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900011F27B61DAA0042A904 /* HourlyWeatherSliderView.swift */; };
 		B937204A27A821E50007B093 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204927A821E50007B093 /* LocationManager.swift */; };
 		B937204C27A8E1660007B093 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204B27A8E1660007B093 /* LoadingView.swift */; };
 		B937204F27A8E5C90007B093 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204E27A8E5C90007B093 /* Color-Theme.swift */; };
@@ -36,6 +37,7 @@
 		B900011627B2DC2A0042A904 /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
 		B900011A27B2DFCC0042A904 /* geocodeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = geocodeData.json; sourceTree = "<group>"; };
 		B900011C27B556810042A904 /* WeatherCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCapsuleView.swift; sourceTree = "<group>"; };
+		B900011F27B61DAA0042A904 /* HourlyWeatherSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherSliderView.swift; sourceTree = "<group>"; };
 		B937204927A821E50007B093 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B937204B27A8E1660007B093 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B937204E27A8E5C90007B093 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				B900011027B0DCD30042A904 /* CityAndDateView.swift */,
 				B937205027A8E6B70007B093 /* ContentView.swift */,
 				B9A4811727A3A4D60067CA0A /* DashboardView.swift */,
+				B900011F27B61DAA0042A904 /* HourlyWeatherSliderView.swift */,
 				B937204B27A8E1660007B093 /* LoadingView.swift */,
 				B900011C27B556810042A904 /* WeatherCapsuleView.swift */,
 				B900011227B0DDA80042A904 /* WeatherDisplayView.swift */,
@@ -243,6 +246,7 @@
 				B900011D27B556810042A904 /* WeatherCapsuleView.swift in Sources */,
 				B9A4811627A3A4D60067CA0A /* RainBootApp.swift in Sources */,
 				B900011327B0DDA80042A904 /* WeatherDisplayView.swift in Sources */,
+				B900012027B61DAA0042A904 /* HourlyWeatherSliderView.swift in Sources */,
 				B937204C27A8E1660007B093 /* LoadingView.swift in Sources */,
 				B900011527B0DFBE0042A904 /* WelcomeView.swift in Sources */,
 			);

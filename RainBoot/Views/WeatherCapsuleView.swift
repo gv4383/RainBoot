@@ -24,7 +24,7 @@ struct WeatherCapsuleView: View {
                 .font(.footnote)
         }
         .padding()
-        .background(Color.darkBlue)
+        .background(Color.lightBlue)
         .clipShape(Capsule())
         .preferredColorScheme(.dark)
     }

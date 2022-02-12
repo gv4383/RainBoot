@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct HourlyWeatherSliderView: View {
+    let weather: WeatherFull
+    
+    @ObservedObject private var viewModel = DashboardViewModel()
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 16) {
-                ForEach(0..<10) { _ in
-                    WeatherCapsuleView(time: "8AM", weatherSymbol: "sun.max", temperature: "100°")
+                ForEach(weather.hourly, id: \.dt) { hourlyWeather in
+                    WeatherCapsuleView(
+                        time: viewModel.convertToLocalTime(unixTime: hourlyWeather.dt),
+                        weatherSymbol: viewModel.getWeatherSymbol(
+                            weatherCondition: DashboardViewModel.WeatherCondition(
+                                rawValue: hourlyWeather.weather.first!.main
+                            )!,
+                            sunriseTime: weather.current.sunrise,
+                            sunsetTime: weather.current.sunset,
+                            currentTime: hourlyWeather.dt,
+                            isCapsuleSymbol: true
+                        ),
+                        temperature: viewModel.convertTempToFahrenheit(
+                            tempInKelvin: hourlyWeather.temp
+                        )
+                    )
                 }
             }
             .padding(32)
@@ -25,7 +43,7 @@ struct HourlyWeatherSliderView: View {
 
 struct HourlyWeatherSliderView_Previews: PreviewProvider {
     static var previews: some View {
-        HourlyWeatherSliderView()
+        HourlyWeatherSliderView(weather: previewWeather)
             .preferredColorScheme(.dark)
     }
 }

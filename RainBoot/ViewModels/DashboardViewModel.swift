@@ -22,6 +22,15 @@ final class DashboardViewModel: ObservableObject {
         Date().formatted(.dateTime.weekday().month().day())
     }
     
+    func convertToLocalTime(unixTime: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: unixTime)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ha"
+        let localDate = formatter.string(from: date as Date)
+        
+        return localDate
+    }
+    
     func convertTempToFahrenheit(tempInKelvin: Double) -> Int {
         let convertedTemp = ((tempInKelvin - 273.15) * 9 / 5) + 32
         
@@ -32,27 +41,31 @@ final class DashboardViewModel: ObservableObject {
         weatherCondition: WeatherCondition,
         sunriseTime: Double,
         sunsetTime: Double,
-        currentTime: Double
+        currentTime: Double,
+        isCapsuleSymbol: Bool = false
     ) -> String {
+        let symbolType = isCapsuleSymbol
+            ? ""
+            : ".fill"
         let clearSymbol = currentTime >= sunriseTime && currentTime < sunsetTime
-            ? "sun.max.fill"
-            : "moon.fill"
+            ? "sun.max\(symbolType)"
+            : "moon\(symbolType)"
         
         switch weatherCondition {
         case .thunderstorm:
-            return "cloud.bolt.rain.fill"
+            return "cloud.bolt.rain\(symbolType)"
         case .drizzle:
-            return "cloud.rain.fill"
+            return "cloud.rain\(symbolType)"
         case .rain:
-            return "cloud.rain.fill"
+            return "cloud.rain\(symbolType)"
         case .snow:
-            return "cloud.snow.fill"
+            return "cloud.snow\(symbolType)"
         case .atmosphere:
-            return "cloud.fog.fill"
+            return "cloud.fog\(symbolType)"
         case .clear:
             return clearSymbol
         case .clouds:
-            return "cloud.fill"
+            return "cloud\(symbolType)"
         }
     }
 }

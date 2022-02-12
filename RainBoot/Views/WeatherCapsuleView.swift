@@ -10,7 +10,7 @@ import SwiftUI
 struct WeatherCapsuleView: View {
     let time: String
     let weatherSymbol: String
-    let temperature: String
+    let temperature: Int
     
     var body: some View {
         VStack(spacing: 16) {
@@ -20,7 +20,7 @@ struct WeatherCapsuleView: View {
             Image(systemName: weatherSymbol)
                 .font(.system(size: 32))
             
-            Text(temperature)
+            Text("\(temperature)°")
                 .font(.footnote)
         }
         .padding()
@@ -32,6 +32,6 @@ struct WeatherCapsuleView: View {
 
 struct WeatherCapsuleView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCapsuleView(time: "8AM", weatherSymbol: "sun.max", temperature: "100°")
+        WeatherCapsuleView(time: "8AM", weatherSymbol: "sun.max", temperature: 100)
     }
 }

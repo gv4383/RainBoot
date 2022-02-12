@@ -18,6 +18,7 @@
 		B937204C27A8E1660007B093 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204B27A8E1660007B093 /* LoadingView.swift */; };
 		B937204F27A8E5C90007B093 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937204E27A8E5C90007B093 /* Color-Theme.swift */; };
 		B937205127A8E6B70007B093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937205027A8E6B70007B093 /* ContentView.swift */; };
+		B980031827B869A1007DAC49 /* DisplayToggleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980031727B869A1007DAC49 /* DisplayToggleBarView.swift */; };
 		B9A4811627A3A4D60067CA0A /* RainBootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811527A3A4D60067CA0A /* RainBootApp.swift */; };
 		B9A4811827A3A4D60067CA0A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811727A3A4D60067CA0A /* DashboardView.swift */; };
 		B9A4811A27A3A4D80067CA0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4811927A3A4D80067CA0A /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		B937204B27A8E1660007B093 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B937204E27A8E5C90007B093 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		B937205027A8E6B70007B093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B980031727B869A1007DAC49 /* DisplayToggleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayToggleBarView.swift; sourceTree = "<group>"; };
 		B9A4811227A3A4D60067CA0A /* RainBoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainBoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4811527A3A4D60067CA0A /* RainBootApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainBootApp.swift; sourceTree = "<group>"; };
 		B9A4811727A3A4D60067CA0A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B900011C27B556810042A904 /* WeatherCapsuleView.swift */,
 				B900011227B0DDA80042A904 /* WeatherDisplayView.swift */,
 				B900011427B0DFBE0042A904 /* WelcomeView.swift */,
+				B980031727B869A1007DAC49 /* DisplayToggleBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				B9DC805327ACE6FC0007E40C /* DashboardViewModel.swift in Sources */,
 				B937204A27A821E50007B093 /* LocationManager.swift in Sources */,
 				B9DC804D27A976A40007E40C /* ContentViewModel.swift in Sources */,
+				B980031827B869A1007DAC49 /* DisplayToggleBarView.swift in Sources */,
 				B9DC805127AAC60B0007E40C /* ModelWeatherData.swift in Sources */,
 				B9A4811827A3A4D60067CA0A /* DashboardView.swift in Sources */,
 				B900011127B0DCD30042A904 /* CityAndDateView.swift in Sources */,

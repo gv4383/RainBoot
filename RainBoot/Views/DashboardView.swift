@@ -38,7 +38,7 @@ struct DashboardView: View {
             }
             .padding()
             
-            DisplayToggleBarView()
+            DisplayToggleBarView(weather: weather)
             
             HourlyWeatherSliderView(weather: weather)
             

@@ -48,7 +48,7 @@ struct WeatherFull: Codable {
         let weather: [Weather]
     }
     
-    struct Daily: Codable {
+    struct Daily: Codable, Identifiable {
         let dt: Double
         let sunrise: Double
         let sunset: Double
@@ -107,6 +107,7 @@ extension WeatherFull.Hourly {
 }
 
 extension WeatherFull.Daily {
+    var id: UUID { return UUID() }
     var moonPhase: Double { return moon_phase }
     var dewPoint: Double { return dew_point }
     var windSpeed: Double { return wind_speed }

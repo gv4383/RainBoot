@@ -14,29 +14,32 @@ struct HourlyWeatherSliderView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 16) {
-                ForEach(weather.hourly, id: \.dt) { hourlyWeather in
-                    WeatherCapsuleView(
-                        time: viewModel.convertToLocalTime(from: hourlyWeather.dt),
-                        weatherSymbol: viewModel.getWeatherSymbol(
-                            weatherCondition: DashboardViewModel.WeatherCondition(
-                                rawValue: hourlyWeather.weather.first!.main
-                            )!,
-                            sunriseTime: weather.current.sunrise,
-                            sunsetTime: weather.current.sunset,
-                            currentTime: hourlyWeather.dt
-                        ),
-                        temperature: viewModel.convertTempToFahrenheit(
-                            tempInKelvin: hourlyWeather.temp
+            HStack {
+                HStack(spacing: 16) {
+                    ForEach(weather.hourly, id: \.dt) { hourlyWeather in
+                        WeatherCapsuleView(
+                            time: viewModel.convertToLocalTime(from: hourlyWeather.dt),
+                            weatherSymbol: viewModel.getWeatherSymbol(
+                                weatherCondition: DashboardViewModel.WeatherCondition(
+                                    rawValue: hourlyWeather.weather.first!.main
+                                )!,
+                                sunriseTime: weather.current.sunrise,
+                                sunsetTime: weather.current.sunset,
+                                currentTime: hourlyWeather.dt
+                            ),
+                            temperature: viewModel.convertTempToFahrenheit(
+                                tempInKelvin: hourlyWeather.temp
+                            )
                         )
-                    )
+                    }
                 }
+                .padding(32)
+                .background(Color.grayBlue)
+                .cornerRadius(32)
+                .shadow(color: Color.black.opacity(0.3), radius: 8, x: 0, y: 4)
             }
-            .padding(32)
-            .background(Color.grayBlue)
-            .cornerRadius(32)
+            .padding()
         }
-        .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
     }
 }
 

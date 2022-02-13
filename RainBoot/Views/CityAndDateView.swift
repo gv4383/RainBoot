@@ -20,6 +20,7 @@ struct CityAndDateView: View {
                 Text(currentDate)
             }
         }
+        .padding(.leading, 16)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

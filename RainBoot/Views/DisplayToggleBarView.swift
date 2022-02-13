@@ -31,7 +31,8 @@ struct DisplayToggleBarView: View {
             .foregroundColor(.white)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal)
+        .padding(.leading, 32)
+        .padding(.trailing)
     }
 }
 

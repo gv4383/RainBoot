@@ -12,7 +12,7 @@ struct DisplayToggleBarView: View {
     
     var body: some View {
         HStack {
-            Text("Today")
+            Text("Hourly")
                 .bold()
             
             Spacer()

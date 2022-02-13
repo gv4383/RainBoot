@@ -17,15 +17,14 @@ struct HourlyWeatherSliderView: View {
             HStack(spacing: 16) {
                 ForEach(weather.hourly, id: \.dt) { hourlyWeather in
                     WeatherCapsuleView(
-                        time: viewModel.convertToLocalTime(unixTime: hourlyWeather.dt),
+                        time: viewModel.convertToLocalTime(from: hourlyWeather.dt),
                         weatherSymbol: viewModel.getWeatherSymbol(
                             weatherCondition: DashboardViewModel.WeatherCondition(
                                 rawValue: hourlyWeather.weather.first!.main
                             )!,
                             sunriseTime: weather.current.sunrise,
                             sunsetTime: weather.current.sunset,
-                            currentTime: hourlyWeather.dt,
-                            isCapsuleSymbol: true
+                            currentTime: hourlyWeather.dt
                         ),
                         temperature: viewModel.convertTempToFahrenheit(
                             tempInKelvin: hourlyWeather.temp

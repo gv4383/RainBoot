@@ -22,10 +22,18 @@ final class DashboardViewModel: ObservableObject {
         Date().formatted(.dateTime.weekday().month().day())
     }
     
-    func convertToLocalTime(unixTime: Double) -> String {
+    func convertToDayOfWeek(from unixTime: Double) -> String {
+        return formatDate(using: "EEEE", with: unixTime)
+    }
+    
+    func convertToLocalTime(from unixTime: Double) -> String {
+        return formatDate(using: "ha", with: unixTime)
+    }
+    
+    func formatDate(using format: String, with unixTime: Double) -> String {
         let date = NSDate(timeIntervalSince1970: unixTime)
         let formatter = DateFormatter()
-        formatter.dateFormat = "ha"
+        formatter.dateFormat = format
         let localDate = formatter.string(from: date as Date)
         
         return localDate
@@ -42,11 +50,11 @@ final class DashboardViewModel: ObservableObject {
         sunriseTime: Double,
         sunsetTime: Double,
         currentTime: Double,
-        isCapsuleSymbol: Bool = false
+        useFillSymbol: Bool = false
     ) -> String {
-        let symbolType = isCapsuleSymbol
-            ? ""
-            : ".fill"
+        let symbolType = useFillSymbol
+            ? ".fill"
+            : ""
         let clearSymbol = currentTime >= sunriseTime && currentTime < sunsetTime
             ? "sun.max\(symbolType)"
             : "moon\(symbolType)"

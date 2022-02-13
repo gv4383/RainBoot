@@ -13,34 +13,42 @@ struct SevenDayView: View {
     @ObservedObject private var viewModel = DashboardViewModel()
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Next 7 Days")
-                    .bold().font(.largeTitle)
-            }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [.darkBlue, .lightBlue]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+                .ignoresSafeArea()
             
             List {
-                ForEach(weather.daily) { weather in
+                ForEach(weather.daily.prefix(7)) { weather in
                     HStack {
-                        Text("Day")
+                        Text(viewModel.convertToDayOfWeek(from: weather.dt))
+                            .bold()
                         
                         Spacer()
                         
-                        HStack {
-                            Image(systemName: viewModel.getWeatherSymbol(
-                                weatherCondition: DashboardViewModel.WeatherCondition(
-                                    rawValue: weather.weather.first!.main
-                                )!,
-                                sunriseTime: weather.sunrise,
-                                sunsetTime: weather.sunset,
-                                currentTime: weather.dt)
+                        HStack(spacing: 32) {
+                            Image(
+                                systemName: viewModel.getWeatherSymbol(
+                                    weatherCondition: DashboardViewModel.WeatherCondition(
+                                        rawValue: weather.weather.first!.main
+                                    )!,
+                                    sunriseTime: weather.sunrise,
+                                    sunsetTime: weather.sunset,
+                                    currentTime: weather.dt,
+                                    useFillSymbol: true
+                                )
                             )
+                                .font(.system(size: 24))
+                                .symbolRenderingMode(.multicolor)
                             
                             Text("\(viewModel.convertTempToFahrenheit(tempInKelvin: weather.temp.day))°")
                         }
                     }
+                    .listRowBackground(Color.grayBlue)
+                    .padding()
                     .frame(maxWidth: .infinity)
                 }
             }
@@ -48,7 +56,10 @@ struct SevenDayView: View {
                 UITableView.appearance().backgroundColor = UIColor.clear
                 UITableViewCell.appearance().backgroundColor = UIColor.clear
             }
+            .padding(.top)
         }
+        .navigationTitle("Next 7 Days")
+        .preferredColorScheme(.dark)
     }
 }
 

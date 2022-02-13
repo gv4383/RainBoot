@@ -28,7 +28,8 @@ struct DashboardView: View {
                         )!,
                         sunriseTime: weather.current.sunrise,
                         sunsetTime: weather.current.sunset,
-                        currentTime: weather.current.dt
+                        currentTime: weather.current.dt,
+                        useFillSymbol: true
                     ),
                     temperature: viewModel.convertTempToFahrenheit(tempInKelvin: weather.current.temp),
                     description: weather.current.weather.first!.main

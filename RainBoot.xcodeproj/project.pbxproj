@@ -20,6 +20,7 @@
 		B937205127A8E6B70007B093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B937205027A8E6B70007B093 /* ContentView.swift */; };
 		B980031827B869A1007DAC49 /* DisplayToggleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980031727B869A1007DAC49 /* DisplayToggleBarView.swift */; };
 		B980031A27B8759A007DAC49 /* SevenDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980031927B8759A007DAC49 /* SevenDayView.swift */; };
+		B988BE1D27CDD25B00086529 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B988BE1C27CDD25B00086529 /* .gitignore */; };
 		B9A4811627A3A4D60067CA0A /* RainBootApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811527A3A4D60067CA0A /* RainBootApp.swift */; };
 		B9A4811827A3A4D60067CA0A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4811727A3A4D60067CA0A /* DashboardView.swift */; };
 		B9A4811A27A3A4D80067CA0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9A4811927A3A4D80067CA0A /* Assets.xcassets */; };
@@ -46,6 +47,9 @@
 		B937205027A8E6B70007B093 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B980031727B869A1007DAC49 /* DisplayToggleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayToggleBarView.swift; sourceTree = "<group>"; };
 		B980031927B8759A007DAC49 /* SevenDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayView.swift; sourceTree = "<group>"; };
+		B988BE1B27CDD0BD00086529 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B988BE1C27CDD25B00086529 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B988BE1F27CDD6F200086529 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9A4811227A3A4D60067CA0A /* RainBoot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainBoot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4811527A3A4D60067CA0A /* RainBootApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainBootApp.swift; sourceTree = "<group>"; };
 		B9A4811727A3A4D60067CA0A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 		B9A4810927A3A4D60067CA0A = {
 			isa = PBXGroup;
 			children = (
+				B988BE1B27CDD0BD00086529 /* Config.xcconfig */,
+				B988BE1C27CDD25B00086529 /* .gitignore */,
 				B9AC494627A3C99A00D0C42D /* README.md */,
 				B9A4811427A3A4D60067CA0A /* RainBoot */,
 				B9A4811327A3A4D60067CA0A /* Products */,
@@ -99,6 +105,7 @@
 		B9A4811427A3A4D60067CA0A /* RainBoot */ = {
 			isa = PBXGroup;
 			children = (
+				B988BE1F27CDD6F200086529 /* Info.plist */,
 				B9A4812427A3B36C0067CA0A /* Managers */,
 				B9AC494327A3C00100D0C42D /* Models */,
 				B9A4812327A3AF350067CA0A /* Views */,
@@ -224,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B988BE1D27CDD25B00086529 /* .gitignore in Resources */,
 				B900011B27B2DFCC0042A904 /* geocodeData.json in Resources */,
 				B9A4811D27A3A4D80067CA0A /* Preview Assets.xcassets in Resources */,
 				B9DC804F27AAC5BD0007E40C /* weatherData.json in Resources */,
@@ -265,6 +273,7 @@
 /* Begin XCBuildConfiguration section */
 		B9A4811E27A3A4D80067CA0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B988BE1B27CDD0BD00086529 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -326,6 +335,7 @@
 		};
 		B9A4811F27A3A4D80067CA0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B988BE1B27CDD0BD00086529 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -372,6 +382,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -390,6 +401,7 @@
 				DEVELOPMENT_TEAM = 2ABK4QQ3NL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RainBoot/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,6 +431,7 @@
 				DEVELOPMENT_TEAM = 2ABK4QQ3NL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RainBoot/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

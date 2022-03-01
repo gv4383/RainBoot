@@ -9,8 +9,8 @@ import Foundation
 import CoreLocation
 
 final class WeatherManager {
-    let baseWeatherURL = "https://api.openweathermap.org/data/2.5/onecall?appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
-    let baseGeocodeURL = "https://api.openweathermap.org/geo/1.0/reverse?appid=\(ProcessInfo.processInfo.environment["WEATHER_API_KEY"] ?? "0")"
+    let baseWeatherURL = "https://api.openweathermap.org/data/2.5/onecall?appid=\(Bundle.main.infoDictionary?["WEATHER_API_KEY"] ?? "0")"
+    let baseGeocodeURL = "https://api.openweathermap.org/geo/1.0/reverse?appid=\(Bundle.main.infoDictionary?["WEATHER_API_KEY"] ?? "0")"
     
     // TODO: Add loading state
     // TODO: Abstract URL logic to be able to use lat/long OR city

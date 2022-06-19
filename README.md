@@ -21,7 +21,7 @@
 - [x] Users can tap on `Next 7 days` to see the local forecast for the next 7 days
 
 ## Requirements
-- iOS 15.0+
+- iOS 15.2+
 - Xcode 13.3.1
 
 ## How to run the app

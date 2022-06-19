@@ -14,11 +14,14 @@
 </p>
 
 ## Features
-- [x] Utilizes [OpenWeather Weather API](https://openweathermap.org/api) to fetch localized weather data
-- [x] Core Location pulls user's location and provides localized weather data based on user's location
+- [x] Provide localized weather data based on user's location
 - [x] Displays user's city, date, and current weather status
 - [x] Displays (scrollable) hourly, local weather data
 - [x] Users can tap on `Next 7 days` to see the local forecast for the next 7 days
+
+## Technical Implementation
+- Requested weather data through [OpenWeather's Weather API](https://openweathermap.org/api) using URLSession
+- Used Core Location to get user's coordinates and request localized weather data
 
 ## Requirements
 - iOS 15.2+
